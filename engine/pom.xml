@@ -28,6 +28,17 @@
     </distributionManagement>
 
     <dependencies>
+        <!-- bazelbub JavaFX shim: hv 5.2.5 engine compiles JavaFXPropertyValueUnwrapper
+             against javafx.beans.value.ObservableValue, which Oracle JDK 8 bundled but
+             OpenJDK does not. openjfx's real classes live in the platform classifier jar
+             (empty main jar). provided scope = compile-only, not in the published closure. -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>11.0.2</version>
+            <classifier>linux</classifier>
+            <scope>provided</scope>
+        </dependency>
         <!--
         Compile time dependencies
         -->
